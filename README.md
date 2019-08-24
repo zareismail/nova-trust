@@ -63,10 +63,10 @@ In your `config/nova-trust.php` file you will find all the package configuration
 ### Teams Feature 
 If you want to use the teams feature that allows you to attach roles and permissions to an user depending on a team, you must change the `teams_strict_check` key value to `true` in your `config/nova-trust.php` file.
 
-### Multiple User Models
+### Multiple User Resources
 In the `config/nova-trust.php` file you will find an `user_resources` array, it contains the information about the multiple user resources and the name of the relationships inside the Role and Permission models. For example:
 ```'
-user_models' => [
+user_resources' => [
     'users' => 'App\Nova\User',
 ],
 ```
