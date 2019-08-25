@@ -22,7 +22,7 @@ class Checker
         if(! static::isDeveloper($user)) { 
         	// First we attach other relevant abilities to current ability
         	$abilities = collect([
-        		$ability, self::relevantFullAbility($ability)
+        		$ability, self::relevantSuperiorAbility($ability)
         	])->filter()->all();
 
         	// First we check abilities without ownership
@@ -109,13 +109,13 @@ class Checker
 	 * @param  string $ability 
 	 * @return string          
 	 */
-	static public function relevantFullAbility(string $ability)
+	static public function relevantSuperiorAbility(string $ability)
 	{
-		$abilities = PermissionContainer::basicAbilities()->pluck('name')->values();
-
-		return collect($abilities)->first(function($name)  use ($ability) { 
+		$callback = function($name)  use ($ability) { 
 			return ends_with($ability, ".{$name}");
-		});
+		};
+
+		return collect(ReservedAbilities::superiorAbilities())->first($callback);
 	}
 
 	/**
