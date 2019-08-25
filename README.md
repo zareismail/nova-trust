@@ -53,7 +53,9 @@ public function tools()
     ];
 }
 ```
- 
+
+At the end, you should insert `NovaTrust\Interacts WithNovTrust` trait in the users model.
+
 ## Configuration
 
 ### Configuration File
