@@ -4,17 +4,19 @@
    	</svg>
     <span class="sidebar-label">{{ __('Nova Trust') }}</span>
 </h3>
-<ul class="sidemenu">
+<ul class="list-reset mb-8">
 	@foreach($resources as $resource)
-	    <li class="leading-tight mb-4 ml-8 text-sm">
-	        <router-link :to="{
-	            name: 'index',
-	            params: {
-	                resourceName: '{{ $resource::uriKey() }}'
-	            }
-	        }" class="text-white text-justify no-underline dim">
-	            {{ __($resource::label()) }}
-	        </router-link>
-	    </li>
+  	@can(str_slug(class_basename($resource)).'.viewAny')
+    <li class="leading-tight mb-4 ml-8 text-sm">
+        <router-link :to="{
+            name: 'index',
+            params: {
+                resourceName: '{{ $resource::uriKey() }}'
+            }
+        }" class="text-white text-justify no-underline dim">
+            {{ __($resource::label()) }}
+        </router-link>
+    </li>
+   	@endif
 	@endforeach 
 </ul>
