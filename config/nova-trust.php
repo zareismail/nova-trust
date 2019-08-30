@@ -23,6 +23,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Ignore superior `viewAny` permission.
+    |--------------------------------------------------------------------------
+    |
+    | By default, `viewAny` permission cause user can see anything in `nova`.
+    | But, in `nova-trust` we limit user access to see anything except 
+    | when the user has  `{{ model }}.viewAny` ability. 
+    | So, if you don't want to ignore `viewAny`, you can set `false`  for this option. 
+    |
+    */
+    'ignore_viewAny' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | NovaTrust User Resources
     |--------------------------------------------------------------------------
     |

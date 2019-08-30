@@ -112,7 +112,12 @@ class Checker
 	static public function relevantSuperiorAbility(string $ability)
 	{
 		$callback = function($name)  use ($ability) { 
-			return ends_with($ability, ".{$name}");
+			if(ends_with($ability, ".{$name}")) {
+				return  $name !== ReservedAbilities::VIEW_ANY || 
+						false === config('nova-trust.ignore_viewAny');
+			}
+
+			return false; 
 		};
 
 		return collect(ReservedAbilities::superiorAbilities())->first($callback);
