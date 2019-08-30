@@ -7,6 +7,31 @@ use Laravel\Nova\Tool;
 
 class NovaTrust extends Tool
 {
+
+
+    /**
+     * Create a new element.
+     *
+     * @param  string|null  $component
+     * @return void
+     */
+    public function __construct($component = null)
+    {
+        parent::__construct($component);
+
+        $this->canSee(function($request) { 
+            $user = $request->user();
+
+            if(! method_exists($user, 'isDeveloper')) {
+                return  $user->can([
+                    'role.viewAny', 'permission.viewAny', 'team.viewAny' 
+                ]);
+            }
+
+            return $user->isDeveloper();
+        });
+    }
+
     /**
      * Perform any tasks that need to happen when the tool is booted.
      *
