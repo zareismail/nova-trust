@@ -3,6 +3,7 @@ namespace NovaTrust\Helpers;
 
 use Illuminate\Contracts\Auth\Authenticatable as User;
 use NovaTrust\Contracts\Ownable;
+use Illuminate\Support\Str;
 
  
 class Checker 
@@ -112,7 +113,7 @@ class Checker
 	static public function relevantSuperiorAbility(string $ability)
 	{
 		$callback = function($name)  use ($ability) { 
-			return ends_with($ability, ".{$name}");
+			return Str::endsWith($ability, ".{$name}");
 		};
 
 		return collect(ReservedAbilities::superiorAbilities())->first($callback);
