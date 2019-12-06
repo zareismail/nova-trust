@@ -54,8 +54,8 @@ class Permission extends Resource
     {
         return array_merge([
             ID::make(__('ID'), 'id')->sortable(), 
-            Text::make(__('Name'), 'name')->onlyOnIndex(),
-            Text::make(__('Display Name'), 'display_name')->onlyOnIndex(),
+            Text::make(__('Name'), 'name'),
+            Text::make(__('Display Name'), 'display_name'),
             Text::make(__('Description'), 'description'),
         ], $this->usersRelation());
     }
