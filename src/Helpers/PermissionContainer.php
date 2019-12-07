@@ -123,6 +123,6 @@ class PermissionContainer
 
 		$name = collect(explode('.', $ability))->reverse()->filter()->implode(' ');
 
-		return title_case(snake_case($name, ' '));
+		return Str::title(Str::snake($name, ' '));
 	}
 }

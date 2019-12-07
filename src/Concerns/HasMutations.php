@@ -2,12 +2,13 @@
 namespace NovaTrust\Concerns;
 
 use NovaTrust\Helpers\PermissionContainer;
+use Illuminate\Support\Str;
 
 trait HasMutations 
 {
 	public function setNameAttribute(string $name)
 	{
-		$this->attributes['name'] = str_slug($name, '-');
+		$this->attributes['name'] = Str::slug($name, '-');
 	}
 
 	public function setDisplayNameAttribute(string $displayName = null)
