@@ -1,36 +1,36 @@
 {
-    "name": "zareismail/nova-trust",
-    "description": "A Laravel Nova tool for `ACL` based on `laratrust` package.",
-    "keywords": [
-        "laravel",
-        "nova",
-        "acl",
-        "nova-trust",
-        "permission",
-        "role",
-        "policy",
-        "gate"
-    ],
-    "license": "MIT",
-    "require": {
-        "php": ">=7.1.0",
-        "santigarcor/laratrust" : "^5.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "NovaTrust\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "NovaTrust\\ToolServiceProvider"
-            ]
-        }
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "zareismail/nova-trust",
+  "description": "A Laravel Nova tool for `ACL` based on `laratrust` package.",
+  "keywords": [
+    "laravel",
+    "nova",
+    "acl",
+    "nova-trust",
+    "permission",
+    "role",
+    "policy",
+    "gate"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1.0",
+    "santigarcor/laratrust": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "NovaTrust\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "NovaTrust\\ToolServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
